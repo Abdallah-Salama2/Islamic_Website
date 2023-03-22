@@ -1,0 +1,628 @@
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@200;400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@200;300;400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Amiri+Quran&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Amiri&display=swap');
+
+@font-face {
+    font-family: Thuluth;
+    src: url(assets/fonts/DecoType\ Thuluth.ttf);
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Amiri', serif;
+    font-weight: 700;
+    outline: none;
+}
+
+::-webkit-scrollbar {
+    width: 0;
+}
+
+body {
+    direction: rtl;
+    scroll-behavior: smooth;
+}
+
+
+ul,
+li {
+    list-style: none;
+
+}
+
+.container {
+    max-width: 1920;
+    width: 100%;
+    margin: 0 auto;
+    position: relative;
+    padding: 10px;
+}
+
+/** for all sections **/
+section {
+    padding: 70px 0;
+}
+
+/** styling h3 at hadith section **/
+section h3 {
+    font-size: 30px;
+    /** will make h3 appear at center **/
+    text-align: center;
+    color: #43a047;
+    /** adding some margin under h3 to 
+    make space between it and rest of page  **/
+    margin-bottom: 50px;
+    position: relative;
+    font-family: 'Amiri', serif;
+
+}
+
+/** 2 lines we want to create under h3 **/
+section h3::after,
+section h3::before {
+    content: "";
+    position: absolute;
+    background-color: #43a047;
+    height: 2px;
+    /* line of height 2 px and left 50%,transform is just centering line with the word */
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+section h3::after {
+    width: 50px;
+    /* imp to ensure line under the h3 word */
+    bottom: -10px;
+}
+
+section h3::before {
+    width: 100px;
+    bottom: 0px;
+}
+
+/** Header **/
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+    transition: .5s all ease-in-out;
+
+}
+
+.header .container {
+    display: flex;
+    /** 3shan el 3naser tegy gamb ba3dha**/
+    justify-content: space-between;
+    /** seperate logo from header **/
+    align-items: center;
+    height: 70px;
+    color: #fff;
+    transition: .5s all ease-in-out;
+}
+
+/** mainly used for shadowing nav bar when scrolling down **/
+.activ {
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+/** at transitions **/
+
+
+
+.header .active .container {
+    height: 80;
+}
+
+.header ul {
+    display: flex;
+    /** make list items next to each other **/
+}
+
+/** fixing list elements postions **/
+.header ul li {
+    position: relative;
+    /** making list items clickable **/
+    cursor: pointer;
+}
+
+/** for the hovering line under list elements in the header **/
+.header ul li::after {
+    content: "";
+    position: absolute;
+    /**under the word position -5px **/
+    bottom: -5px;
+    left: 0;
+    background-color: #fff;
+    height: 2px;
+    transition: .3s all ease-in-out;
+    width: 0;
+}
+
+/** when list element hovered it will add width 100% to the line created in last command under the list words 
+ with transition poroperty used on line before or at the  active class which determin the page used rightnow  
+  make line appear under **/
+.header li.active::after,
+.header li:hover::after {
+    width: 100%;
+}
+
+.header .bars {
+    display: none;
+}
+
+/** seperate list items from each other create margin between them**/
+.header li:not(:first-of-type),
+.header li:not(:last-of-type) {
+    margin: 0 15px;
+}
+
+.header .logo {
+    padding: 0 auto;
+    font-family: Thuluth;
+    font-size: 40px;
+    cursor: pointer;
+}
+
+/** main section **/
+
+.main {
+    /** short code for all background images **/
+    background: url(assets/images/1.jpg) center center/cover no-repeat;
+}
+
+.main .container {
+    min-height: 100vh;
+}
+
+/** to center title and button withut kwowing hieght **/
+.main .title {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    color: whitesmoke;
+}
+
+.main .title .h2 {
+    line-height: 1.9;
+    font-size: 40px;
+    margin-bottom: 30px;
+}
+
+.title .btn {
+    border: 2px solid #fff;
+    background: transparent;
+    border-radius: 5px;
+    font-size: 20px;
+    font-weight: 400;
+    color: inherit;
+    display: flex;
+    align-items: center;
+    /** postion relative cause i will make after, after while **/
+    position: relative;
+    transition: 0.3s all ease-in-out;
+    padding: 5px 15px;
+    margin-top: 20px;
+    cursor: pointer;
+
+}
+
+.title .btn svg,
+.title .btn i,
+.title .btn .svg:not(:root).svg-inline--fa,
+.title .btn .svg-inline--fa.fa-w-6 {
+    font-size: 25px;
+    margin-right: 20px;
+
+}
+
+
+/** properties will be applied at hovering with 
+after property only thats why width is 0 now  **/
+.title .btn::after {
+    content: "";
+    /** postion relative to absolute which add the effect of white color at 
+    button coming from left to right you will see at hovering **/
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 0;
+    height: 100%;
+    transition: 0.3s all ease-in-out;
+    background-color: #fff;
+    z-index: -1;
+}
+
+.title .btn:hover {
+    color: #232323;
+}
+
+.title .btn:hover::after {
+    width: 100%;
+
+}
+
+
+
+/** Hadith Section **/
+
+.hadithcontainer {
+
+    /** use min height not height so it wont corrupt the responsive  **/
+    min-height: 350px;
+    position: relative;
+    box-shadow: 4px 4px 4px 0 #d1d9e6 inset,
+        -4px -4px 4px 0px #d1d9e6 inset;
+    color: #232323;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 50px 20px;
+    padding-top: 70px;
+    font-family: 'Cairo', serif;
+
+}
+
+.hadithcontainer .number {
+    position: absolute;
+    left: 0;
+    top: 0;
+    padding: 10px 20px;
+    color: #43a047;
+    background: transparent;
+    box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.14) inset, 0 7px 10px -5px rgba(76, 175, 88, 0.4) inset;
+}
+
+.hadith .buttons {
+    /** will make the buttons  box small flex and space between make one left and one right*/
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.hadith .buttons div {
+    background: linear-gradient(60deg, #66bb6a, #43a047);
+    box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(76, 175, 88, 0.4);
+    color: #fff;
+    padding: 10px 20px;
+    cursor: pointer;
+
+
+
+}
+
+
+/** lec section **/
+
+.lectures-container {
+    display: flex;
+    justify-content: space-between;
+    /* to start from the line */
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+
+.lectures-container .right,
+.lectures-container .left {
+    width: 48%;
+}
+
+.lectures-container .right .lec {
+
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
+    padding: 20px;
+    transition: 0.5s all ease-in-out;
+    cursor: pointer;
+
+}
+
+.lectures-container .right .lec:hover {
+    transform: scale(.95);
+}
+
+.lec .lec-text {
+    /* text take 100% from -150 px */
+    width: calc(100% -150px);
+    color: #232323;
+}
+
+.lec img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: auto;
+    /*auto= yb3d img 3an text 3la 2ad ma y2dr*/
+}
+
+.lec-text h4 {
+    font-size: 19px;
+
+}
+
+.lec-text p {
+    font-size: 14px;
+}
+
+.left {
+    position: sticky;
+}
+
+.lectures-container .left iframe {
+    width: 80%;
+    height: 400px;
+    border-radius: 20px;
+    margin-right: 50px;
+    margin-top: 20px;
+
+}
+
+
+/* Quran Section */
+
+.surahsContainer {
+    display: flex;
+
+    flex-wrap: wrap;
+}
+
+.surahsContainer .surah {
+    min-height: 100px;
+    min-width: 150px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
+    margin-bottom: 10px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 5px auto;
+    cursor: pointer;
+    /* always for hover*/
+    transition: .5s ease-in-out;
+    color: #232323;
+    font-size: 17px;
+
+}
+
+.surahsContainer .surah p{
+    font-family: 'Amiri', serif;
+
+
+}
+.surahsContainer .surah:hover {
+    transform: scale(1.05);
+}
+
+.hide {
+    display: none;
+}
+
+/** Pop us page For surah **/
+
+.surah-popup {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 2;
+    /*mohem */
+    background-color: #fff;
+    overflow-y: scroll;
+    transform: translateX(100%);
+
+}
+
+.surah-popup.active {
+    transform: translate(0);
+    transition: .5s all ease-in-out;
+}
+
+/* the scroll bar color and property at popup page */
+.surah-popup::-webkit-scrollbar {
+    width: 10px;
+    background-color: #fff;
+}
+
+.surah-popup::-webkit-scrollbar-thumb {
+    background-color: #43a047;
+}
+
+.close-popup {
+    position: sticky;
+    top: 5px;
+    right: 5px;
+    width: 40px;
+    height: 40px;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.6);
+
+    /* we can use line hieght 40px and text align center */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 23px;
+    color: #121212;
+    cursor: pointer;
+
+
+}
+
+.close-popup.active {
+    left: 100%;
+    transform: translate(0);
+
+}
+
+.surah-popup .ayat {
+    padding: 20px;
+    width: (100%-40px);
+    margin-right: 40px;
+    margin-top: 20px;
+    color: #121212;
+    text-align: center;
+
+}
+
+.surah-popup .ayat p {
+    line-height: 2;
+    width: 100%;
+    border-bottom: 2px solid #43a047;
+    margin-bottom: 10px;
+    font-family: 'Amiri', serif;
+}
+
+
+/** Pray Time */
+
+.pray .cards {
+    display: flex;
+    flex-wrap: wrap;
+    
+
+}
+
+.cards .card {
+    width: 250px;
+    min-height: 320px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
+    padding: 30px 20px;
+    margin: 20 px auto;
+
+}
+
+.card .circle {
+    position: relative;
+    
+}
+
+.circle svg {
+    width: 210px;
+    height: 210px;
+
+}
+
+.circle svg circle {
+    width: 100%;
+    height: 100%;
+    fill: none;
+    stroke-width: 10;
+    stroke:#43a047 ;
+    transform: translate(5px,5px);
+    stroke-dasharray:630px;
+    stroke-dashoffset: 70px;
+    animation:dash 0.1s linear infinite;
+}
+
+.circle .prayTime{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    color: #43a047;
+    font-size: 40px;
+    font-family: cursive;
+}
+
+.card p{
+    color: #43a047;
+    font-size: 25px;
+    margin-top: 20px;
+    text-align: center;
+    font-weight: bold;
+    font-family: cursive;
+
+}
+
+/*** Footer **/
+.footer
+{
+
+    padding: 0;
+}
+.footer svg
+{
+    fill: #43a047;
+    transform: translateY(10px);
+}
+.footer .social
+{
+    display: flex;
+    align-items: center;
+    justify-content:center ;
+    background-color: #43a047;
+}
+.footer .social a
+{
+    margin: 15px ;
+    font-size: 35px;
+    color: #fff;
+}
+
+
+/*** Scroll Btn ***/
+.scrollBtn
+{
+    position: fixed;
+    bottom: 0;
+    right: 20px;
+    color: #fff;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #43a047;
+    border-radius: 50%;
+    font-size: 25px;
+    transition:  1s bottom ease-in-out;
+    bottom: -50px;
+}
+.scrollBtn.active
+{
+    bottom: 20px;
+}
+/*** Responsive ***/
+@media (max-width : 1024px)
+{
+    .lectures-container .right, .lectures-container .left
+    {
+        width: 98%
+    }
+    .header .bars 
+    {
+        display: block;
+        font-size: 25px;
+    }
+    .header ul
+    {
+        position: absolute;
+        left: 0;
+        top: 80px;
+        width: 220px;
+        background-color: rgba(0,0,0,.6);
+        flex-direction: column;
+        padding: 0 50px;
+        text-align: center;
+        transform: translateX(-100%);
+        transition: .7s transform ease-in-out;
+    }
+    .header ul.active
+    {
+        transform: translateX(0);
+    }
+    .header li:not(:first-of-type), 
+    .header li:not(:last-of-type)
+    {
+        margin: 15px 0;
+    }
+}
